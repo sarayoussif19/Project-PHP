@@ -1,0 +1,41 @@
+CREATE TABLE `user` (
+    user_id int AUTO_INCREMENT PRIMARY KEY,
+    name CHARACTER (255),
+    email CHARACTER (255),
+    password VARCHAR(255),
+    room_no int,
+    ext int ,
+    profile_pic VARCHAR(255) NOT NULL
+);
+CREATE TABLE category(
+    category_id INT PRIMARY KEY,
+    name CHARACTER (255)
+);
+CREATE TABLE `product` (
+    product_id int AUTO_INCREMENT PRIMARY KEY,
+    name CHARACTER (255),
+    price int,
+    product_pic VARCHAR(255) NOT NULL ,
+    category_id int,
+    FOREIGN KEY (category_id) REFERENCES category(category_id)
+);
+
+CREATE TABLE `orders` (
+    user_id int NOT NULL,
+    product_id int NOT NULL,
+    PRIMARY KEY(user_id ,product_id ),
+    
+        CONSTRAINT cons_user 
+        FOREIGN KEY (user_id) REFERENCES user (user_id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    
+	    CONSTRAINT cons_product 
+    FOREIGN KEY (product_id) REFERENCES product (product_id)
+    ON DELETE CASCADE ON UPDATE CASCADE , 
+order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+ date_from  DATETIME , 
+ date_to  DATETIME  ,
+
+status ENUM('processing', 'out of delivery', 'done')
+
+   );
