@@ -1,0 +1,15 @@
+h1{
+    padding-top: 2em;
+    text-align: center;
+}
+form{
+    width: 50vw;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50);
+    -moz-transform: translate(-50);
+    -ms-transform: translate(-50);
+    -o-transform: translate(-50);
+    top: 50%;
+    left: 50%;
+}
